@@ -13,7 +13,17 @@
   ],
   "author": "Jerry Lee",
   "license": "MIT",
+  "bin": {
+    "pi-sync": "./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jerrywdlee/pi-sync.git"
+  },
   "dependencies": {
+    "chokidar": "^1.7.0",
+    "colors": "^1.1.2",
+    "ignore-walk": "^3.0.1",
     "lodash": "^4.17.4",
     "node-ssh": "^5.0.0",
     "yamljs": "^0.3.0"
