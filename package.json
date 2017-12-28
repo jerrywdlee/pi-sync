@@ -1,0 +1,21 @@
+{
+  "name": "pi-sync",
+  "version": "0.0.1",
+  "description": "Auto sync codes to Raspberry Pi by SFTP, inspirated by docker-sync.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "raspberry-pi",
+    "sftp",
+    "sync"
+  ],
+  "author": "Jerry Lee",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "node-ssh": "^5.0.0",
+    "yamljs": "^0.3.0"
+  }
+}
