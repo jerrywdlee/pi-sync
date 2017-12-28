@@ -24,7 +24,7 @@ try {
   throw Error(e.message)
 }
 
-let ignoreRules = ['.git', '.git/**/*'].concat(syncConf.ignore).filter(r => r);
+let ignoreRules = ['.git'].concat(syncConf.ignore).filter(r => r);
 let includeRules = [].concat(syncConf.include).filter(r => r).map(r => r.trim());
 // console.log(ignoreRules);
 
