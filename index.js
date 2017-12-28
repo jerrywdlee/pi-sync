@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 'use strict';
-const fs = require('fs');
+// const fs = require('fs');
 const path = require('path');
 const YAML = require('yamljs');
 const colors = require('colors/safe');
@@ -9,6 +9,7 @@ const _ = require('lodash');
 
 const walkSync = require('./lib/ignore_walk');
 const watch = require('./lib/watch_dir');
+const Sync = require('./lib/sync_files');
 
 const confFileName = 'pi-sync.conf.yml';
 const confPath = path.resolve(process.cwd(), confFileName);
@@ -28,7 +29,22 @@ let includeRules = [].concat(syncConf.include).filter(r => r).map(r => r.trim())
 
 const { fileList, ignoreRuleList } = walkSync({ ignoreFiles: [] }, includeRules, ignoreRules);
 
+// global variables
+let putFileList = [];
+let delFileList = [];
+let busyFlag = false;
+
 console.log(syncConf);
 console.log(fileList);
 
 watch(ignoreRuleList);
+
+const sync = new Sync(syncConf);
+(async () => {
+  try {
+    await sync.connect();
+    await sync.sync(fileList, fileList);
+  } catch (error) {
+    console.log(error);
+  }
+})()

@@ -25,7 +25,7 @@ connection: # connection setting of ssh/sftp
   # privateKey: ~/.ssh/known_hosts # optional, but one of password or privateKey is needed
 
 transport: # directory setting of sftp
-  remotePath: ~/pi-sync # optional, default is /home/pi or $HOME
+  remotePath: ~/pi-sync # optional, default is ~/SAME-DIR-NAME
   localPath: ~/my-git/pi-sync # optional, default is current path
   execBefore: 'npm install' # optional, command run before transport
   execAfter: 'npm run build' # optional, command run after transport
