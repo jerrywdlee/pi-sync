@@ -1,0 +1,25 @@
+# options of pi-sync command
+commands:
+  -
+    - '-w, --watch'
+    - 'Watch files change and sync'
+  -
+    - '-H, --host <host>'
+    - 'SSH host name of remote device'
+  -
+    - '-p, --port <port>'
+    - 'SSH port number of remote device'
+  -
+    - '-a, --account <account>'
+    - 'SSH account name of remote device'
+  -
+    - '-P, --pass <pass>'
+    - 'SSH password of remote device'
+
+example: |
+  '  Examples:'
+  ''
+  '    $ pi-sync --help'
+  '    $ pi-sync -H pi@192.169.1.1:22 -P raspberry'
+  '    $ pi-sync -H 192.169.1.1 -p 22 -a pi -P raspberry'
+  '    $ pi-sync -w -H pi@192.169.1.1:22 -P raspberry'
