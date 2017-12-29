@@ -57,7 +57,7 @@ let includeRules = [].concat(syncConf.include).filter(r => r).map(r => r.trim())
 
 const { fileList, ignoreRuleList } = walkSync({ ignoreFiles: [] }, includeRules, ignoreRules);
 
-Log.log('syncConf', syncConf);
+// Log.log('syncConf', syncConf);
 // Log.log('fileList', fileList);
 
 const sync = new Sync(syncConf);

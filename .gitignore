@@ -128,4 +128,7 @@ $RECYCLE.BIN/
 # pi-sync config file
 pi-sync.conf.yml
 
+# binary
+bin
+
 # End of https://www.gitignore.io/api/windows,macos,linux,node

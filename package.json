@@ -4,6 +4,8 @@
   "description": "Auto sync codes to Raspberry Pi by SFTP, inspirated by docker-sync.",
   "main": "index.js",
   "scripts": {
+    "babel": "babel src --out-dir bin --source-maps --copy-files",
+    "watch": "babel src -d bin -s -w --copy-files",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -14,7 +16,7 @@
   "author": "Jerry Lee",
   "license": "MIT",
   "bin": {
-    "pi-sync": "./index.js"
+    "pi-sync": "bin/index.js"
   },
   "repository": {
     "type": "git",
@@ -28,5 +30,11 @@
     "lodash": "^4.17.4",
     "node-ssh": "^5.0.0",
     "yamljs": "^0.3.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-es2015-node5": "^1.2.0"
   }
 }

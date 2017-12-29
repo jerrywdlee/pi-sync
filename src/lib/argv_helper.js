@@ -6,7 +6,7 @@ const program = require('commander');
 const _ = require('lodash');
 
 const options = YAML.load(path.join(__dirname, './extra/options.yml'));
-const package_json = JSON.parse(fs.readFileSync(path.join(__dirname, '../package.json')));
+const package_json = JSON.parse(fs.readFileSync(path.join(__dirname, '../../package.json')));
 
 program.version(package_json.version);
 
