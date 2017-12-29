@@ -1,6 +1,6 @@
 {
   "name": "pi-sync",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "description": "Auto sync codes to Raspberry Pi by SFTP, inspirated by docker-sync.",
   "main": "bin/index.js",
   "scripts": {
@@ -8,6 +8,7 @@
     "watch": "babel src -d bin -s -w --copy-files",
     "test": "npm run babel && babel test_src -d test -s && mocha -r intelli-espower-loader",
     "coverage": "nyc mocha",
+    "coveralls": "npm run coverage && nyc report --reporter=text-lcov | coveralls",
     "prepublish": "npm run babel"
   },
   "keywords": [
@@ -38,6 +39,7 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-es2015-node5": "^1.2.0",
+    "coveralls": "^3.0.0",
     "intelli-espower-loader": "^1.0.1",
     "mocha": "^4.1.0",
     "nyc": "^11.4.1",
