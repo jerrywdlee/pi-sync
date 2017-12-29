@@ -130,6 +130,5 @@ pi-sync.conf.yml
 
 # binary
 bin
-test
 
 # End of https://www.gitignore.io/api/windows,macos,linux,node

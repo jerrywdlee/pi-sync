@@ -6,7 +6,7 @@
   "scripts": {
     "babel": "babel src --out-dir bin --source-maps --copy-files",
     "watch": "babel src -d bin -s -w --copy-files",
-    "test": "npm run babel && babel test_src -d test -s && mocha -r intelli-espower-loader",
+    "test": "npm run babel && mocha -r intelli-espower-loader",
     "coverage": "nyc mocha",
     "coveralls": "npm run coverage && nyc report --reporter=text-lcov | coveralls",
     "prepublish": "npm run babel"
