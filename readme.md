@@ -16,7 +16,8 @@ npm i -D pi-sync
 
 # Usage
 ## Use Options
-NOTE: Priority Level: `options` > `pi-sync.conf.yml` > Default Setting  
+__*NOTE*__: Priority Level: `options` > `pi-sync.conf.yml` > Default Setting  
+__*IMPORTANT*__: An already-known bug occurs when try to sync a large project for first time, Plz use `-s` options when sync failed.
 ```
   Usage: pi-sync [options]
 
@@ -73,6 +74,9 @@ include: # optional, additional include files which ignored by .gitignore
   - IM-IN-GITIGNORE.yml
 
 ```
+
+# Looks like
+![Sample Usage](https://cdn.rawgit.com/jerrywdlee/pi-sync/3afe7cea/assets/pi-sync_demo.gif "Sample Usage")
 
 ## License (MIT)
 Copyright 2017~2018 Jerry Lee
