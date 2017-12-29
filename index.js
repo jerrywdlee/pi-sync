@@ -22,7 +22,7 @@ try {
 } catch (e) {
   let warn = `Could not find ${colors.green(`'${confFileName}'`)} under ${colors.yellow(process.cwd())}`;
   Log.warn(warn);
-  console.error(e);
+  // console.error(e);
 } finally {
   if (syncConf.connection) {
     Object.assign(syncConf.connection, connect_opt);
