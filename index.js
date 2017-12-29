@@ -11,23 +11,38 @@ const walkSync = require('./lib/ignore_walk');
 const watch = require('./lib/watch_dir');
 const Sync = require('./lib/sync_files');
 const Log = require('./lib/log');
+const delay = require('./lib/delay');
 
 const confFileName = 'pi-sync.conf.yml';
 const confPath = path.resolve(process.cwd(), confFileName);
 
 let syncConf = {};
+const defaultConnection = {
+  port: 22,
+  username: 'pi',
+  password: 'raspberry',
+  readyTimeout: 5000
+};
 
 try {
-  syncConf = YAML.load(confPath) || {};
+  syncConf = YAML.load(confPath) || syncConf;
 } catch (e) {
   let warn = `Could not find ${colors.green(`'${confFileName}'`)} under ${colors.yellow(process.cwd())}`;
   Log.warn(warn);
   // console.error(e);
 } finally {
   if (syncConf.connection) {
-    Object.assign(syncConf.connection, connect_opt);
+    syncConf.connection = {
+      ...defaultConnection,
+      ...syncConf.connection,
+      ...connect_opt
+    };
+    // Object.assign(syncConf.connection, connect_opt);
   } else {
-    syncConf.connection = connect_opt;
+    syncConf.connection = {
+      ...defaultConnection,
+      ...connect_opt
+    };
   }
 }
 
@@ -42,13 +57,14 @@ let includeRules = [].concat(syncConf.include).filter(r => r).map(r => r.trim())
 
 const { fileList, ignoreRuleList } = walkSync({ ignoreFiles: [] }, includeRules, ignoreRules);
 
-// Log.log('syncConf', syncConf);
+Log.log('syncConf', syncConf);
 // Log.log('fileList', fileList);
 
 const sync = new Sync(syncConf);
 (async () => {
   try {
     await sync.connect();
+    // await delay(100);
     if (syncConf.connection.watch) {
       const opt = {
         ignoreRuleList,

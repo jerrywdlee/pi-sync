@@ -18,6 +18,13 @@ commands:
   -
     - '-k, --key <key>'
     - 'Path to SSH private key'
+  -
+    - '-r, --remote <remote>'
+    - 'Remote path, must be absolute path'
+  -
+    - '-s, --safe'
+    - 'Use safe mode, if failed first time, try safe mode'
+
 
 example: |
   '  Examples:'
@@ -28,3 +35,4 @@ example: |
   '    $ pi-sync -H 192.168.1.1 -p 22 -a pi -P raspberry'
   '    $ pi-sync -w -H pi@192.168.1.1:22 -P raspberry'
   '    $ pi-sync -w -H 192.168.1.1 # use pi@HOSTNAME:22, pw: raspberry by default'
+  '    $ pi-sync -s -H 192.168.1.1 -r /home/pi/Documents/PROJECT'

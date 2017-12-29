@@ -23,6 +23,7 @@ connection: # connection setting of ssh/sftp
   username: pi # needed
   password: raspberry # optional, but one of password or privateKey is needed
   # privateKey: PATH/TO/KEY # optional, but one of password or privateKey is needed
+  readyTimeout: 10000 # optional, How long (in milliseconds) to wait for the SSH handshake to complete 
 
 transport: # directory setting of sftp
   remotePath: ~/pi-sync # optional, default is ~/SAME-DIR-NAME
@@ -30,6 +31,7 @@ transport: # directory setting of sftp
   execBefore: 'npm install' # optional, command run before transport
   execAfter: 'npm run build' # optional, command run after transport
   polling: 1500 # optional, defalt 1500ms, on --watch mode, stock changes and transport every few moment
+  safeMode: false # optional, defalt false, if true, transport file one by one, slow but safe
 
 ignore: # optional, additional ignore files which not in .gitignore
   - readme.md
