@@ -11,6 +11,7 @@ const { connect_opt } = require('./lib/argv_helper');
 const walkSync = require('./lib/ignore_walk');
 const watch = require('./lib/watch_dir');
 const Sync = require('./lib/sync_files');
+const Log = require('./lib/log');
 
 const confFileName = 'pi-sync.conf.yml';
 const confPath = path.resolve(process.cwd(), confFileName);
@@ -21,11 +22,7 @@ try {
   syncConf = YAML.load(confPath) || {};
 } catch (e) {
   let warn = `Could not find ${colors.green(`'${confFileName}'`)} under ${colors.yellow(process.cwd())}`;
-  console.warn(
-    colors.bold.yellow(`[pi-sync]`),
-    colors.red(`[Warning]`), 
-    warn
-  );
+  Log.warn(warn);
   // throw Error(e.message)
 } finally {
   if (syncConf.connection) {
@@ -37,11 +34,7 @@ try {
 
 if (!_.get(syncConf, 'connection.host')) {
   let msg = `No host found, Plz check ${colors.yellow('`pi-sync -h`')} for more info.`
-  console.error(
-    colors.bold.red(`[pi-sync]`),
-    colors.red(`[Error]`),
-    msg
-  );
+  Log.error(msg);
   process.exit(1);
 }
 
@@ -51,8 +44,8 @@ let includeRules = [].concat(syncConf.include).filter(r => r).map(r => r.trim())
 
 const { fileList, ignoreRuleList } = walkSync({ ignoreFiles: [] }, includeRules, ignoreRules);
 
-console.log(syncConf);
-console.log(fileList);
+Log.log('syncConf', syncConf);
+// console.log(fileList);
 
 const sync = new Sync(syncConf);
 (async () => {
@@ -70,8 +63,8 @@ const sync = new Sync(syncConf);
       sync.close();
     }
   } catch (e) {
+    Log.error( e.message);
     console.error(e);
-    console.error('Err!', e.message);
     process.exit(1);
   }
 })();
