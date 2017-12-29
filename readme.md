@@ -22,14 +22,14 @@ connection: # connection setting of ssh/sftp
   port: 22 # optional, default 22
   username: pi # needed
   password: raspberry # optional, but one of password or privateKey is needed
-  # privateKey: ~/.ssh/known_hosts # optional, but one of password or privateKey is needed
+  # privateKey: PATH/TO/KEY # optional, but one of password or privateKey is needed
 
 transport: # directory setting of sftp
   remotePath: ~/pi-sync # optional, default is ~/SAME-DIR-NAME
   localPath: ~/my-git/pi-sync # optional, default is current path
   execBefore: 'npm install' # optional, command run before transport
   execAfter: 'npm run build' # optional, command run after transport
-  polling: 1500 # optional, defalt 1500, on --watch mode, stock changes and transport every few milliseconds
+  polling: 1500 # optional, defalt 1500ms, on --watch mode, stock changes and transport every few moment
 
 ignore: # optional, additional ignore files which not in .gitignore
   - readme.md
