@@ -15,11 +15,15 @@ commands:
   -
     - '-P, --pass <pass>'
     - 'SSH password of remote device'
+  -
+    - '-k, --key <key>'
+    - 'Path to SSH private key'
 
 example: |
   '  Examples:'
   ''
   '    $ pi-sync --help'
+  '    $ pi-sync -H pi@192.168.1.1:22 -k PATH/TO/KEY'
   '    $ pi-sync -H pi@192.168.1.1:22 -P raspberry'
   '    $ pi-sync -H 192.168.1.1 -p 22 -a pi -P raspberry'
   '    $ pi-sync -w -H pi@192.168.1.1:22 -P raspberry'
