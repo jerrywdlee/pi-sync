@@ -1,4 +1,6 @@
 # pi-sync
+[![Build Status](https://travis-ci.org/jerrywdlee/pi-sync.svg?branch=master)](https://travis-ci.org/jerrywdlee/pi-sync)
+[![Coverage Status](https://coveralls.io/repos/github/jerrywdlee/pi-sync/badge.svg?branch=master)](https://coveralls.io/github/jerrywdlee/pi-sync?branch=master)  
 Auto sync codes to Raspberry Pi by SFTP, inspirated by docker-sync.
 
 # Install
@@ -12,6 +14,36 @@ npm i -D pi-sync
 ```
 
 # Usage
+## Use Options
+NOTE: Priority Level: `options` > `pi-sync.conf.yml` > Default Setting  
+```
+  Usage: pi-sync [options]
+
+
+  Options:
+
+    -V, --version            output the version number
+    -w, --watch              Watch files change and sync
+    -H, --host <host>        SSH host name of remote device
+    -p, --port <port>        SSH port number of remote device
+    -a, --account <account>  SSH account name of remote device
+    -P, --pass <pass>        SSH password of remote device
+    -k, --key <key>          Path to SSH private key
+    -r, --remote <remote>    Remote path, must be absolute path
+    -s, --safe               Use safe mode, if failed first time, try safe mode
+    -h, --help               output usage information
+
+  Examples:
+
+    $ pi-sync --help
+    $ pi-sync -H pi@192.168.1.1:22 -k PATH/TO/KEY
+    $ pi-sync -H pi@192.168.1.1:22 -P raspberry
+    $ pi-sync -H 192.168.1.1 -p 22 -a pi -P raspberry
+    $ pi-sync -w -H pi@192.168.1.1:22 -P raspberry
+    $ pi-sync -w -H 192.168.1.1 # use pi@HOSTNAME:22, pw: raspberry by default
+    $ pi-sync -s -H 192.168.1.1 -r /home/pi/Documents/PROJECT
+```
+
 ## Use Config File
 Set `pi-sync.conf.yml` under repository root before use it.
 ```yaml
@@ -40,3 +72,6 @@ include: # optional, additional include files which ignored by .gitignore
   - IM-IN-GITIGNORE.yml
 
 ```
+
+## License (MIT)
+Copyright 2017~2018 Jerry Lee

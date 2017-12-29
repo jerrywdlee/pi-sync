@@ -1,6 +1,6 @@
 {
   "name": "pi-sync",
-  "version": "0.1.3",
+  "version": "0.1.2",
   "description": "Auto sync codes to Raspberry Pi by SFTP, inspirated by docker-sync.",
   "main": "bin/index.js",
   "scripts": {
