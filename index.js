@@ -49,7 +49,6 @@ const sync = new Sync(syncConf);
 (async () => {
   try {
     await sync.connect();
-    await sync.sync(fileList);
     if (syncConf.connection.watch) {
       const opt = {
         ignoreRuleList,
@@ -58,6 +57,7 @@ const sync = new Sync(syncConf);
       }
       watch(opt);
     } else {
+      await sync.sync(fileList);
       sync.close();
     }
   } catch (e) {
