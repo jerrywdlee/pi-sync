@@ -12,7 +12,7 @@ npm i -D pi-sync
 ```
 
 # Usage
-## Config File
+## Use Config File
 Set `pi-sync.conf.yml` under repository root before use it.
 ```yaml
 # NOTE: This sample configs could not used directly
