@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 'use strict';
-// const fs = require('fs');
 const path = require('path');
 const YAML = require('yamljs');
 const colors = require('colors/safe');
@@ -24,7 +23,6 @@ try {
   let warn = `Could not find ${colors.green(`'${confFileName}'`)} under ${colors.yellow(process.cwd())}`;
   Log.warn(warn);
   console.error(e);
-  // throw Error(e.message)
 } finally {
   if (syncConf.connection) {
     Object.assign(syncConf.connection, connect_opt);
@@ -39,14 +37,13 @@ if (!_.get(syncConf, 'connection.host')) {
   process.exit(1);
 }
 
-
 let ignoreRules = ['.git'].concat(syncConf.ignore).filter(r => r);
 let includeRules = [].concat(syncConf.include).filter(r => r).map(r => r.trim());
 
 const { fileList, ignoreRuleList } = walkSync({ ignoreFiles: [] }, includeRules, ignoreRules);
 
-Log.log('syncConf', syncConf);
-// console.log(fileList);
+// Log.log('syncConf', syncConf);
+// Log.log('fileList', fileList);
 
 const sync = new Sync(syncConf);
 (async () => {
