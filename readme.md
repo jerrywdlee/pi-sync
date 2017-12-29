@@ -1,4 +1,5 @@
 # pi-sync
+[![npm version](https://badge.fury.io/js/pi-sync.svg)](https://badge.fury.io/js/pi-sync)
 [![Build Status](https://travis-ci.org/jerrywdlee/pi-sync.svg?branch=master)](https://travis-ci.org/jerrywdlee/pi-sync)
 [![Coverage Status](https://coveralls.io/repos/github/jerrywdlee/pi-sync/badge.svg?branch=master)](https://coveralls.io/github/jerrywdlee/pi-sync?branch=master)  
 Auto sync codes to Raspberry Pi by SFTP, inspirated by docker-sync.
