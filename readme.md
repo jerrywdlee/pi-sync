@@ -5,14 +5,14 @@
 Auto sync codes to Raspberry Pi by SFTP, inspirated by docker-sync.
 
 # Install
-## Global
 ```
 npm i -g pi-sync
-```
-## Local
-```
+# OR
 npm i -D pi-sync
 ```
+
+# Node versions
+node.js version 6+ needed.
 
 # Usage
 ## Use Options
@@ -47,7 +47,8 @@ __*IMPORTANT*__: An already-known bug occurs when try to sync a large project fo
 ```
 
 ## Use Config File
-Set `pi-sync.conf.yml` under repository root before use it.
+Set `pi-sync.conf.yml` under repository root before use it. and run commands below.
+### Demo pi-sync.conf.yml
 ```yaml
 # NOTE: This sample configs could not used directly
 
@@ -75,8 +76,23 @@ include: # optional, additional include files which ignored by .gitignore
 
 ```
 
-# Looks like
-![Sample Usage](https://cdn.rawgit.com/jerrywdlee/pi-sync/3afe7cea/assets/pi-sync_demo.gif "Sample Usage")
+### Commands
+```
+# Batch sync
+$(npm bin)/pi-sync
+
+# Watch file changes and sync
+$(npm bin)/pi-sync -w
+```
+
+# Demo Images
+## Use options 
+Sync local `pi-sync` to `/home/pi/Documents/pi-sync` at `pi@192.168.3.86:22` once in __safeMode__.
+![Sample Usage](https://cdn.rawgit.com/jerrywdlee/pi-sync/c128932c/assets/pi-sync_demo_1.gif "Sample Usage")
+
+## Use config file and watch change
+Sync local `pi-sync` by `pi-sync.conf.yml` and watch local file changes.
+![Sample Usage](https://cdn.rawgit.com/jerrywdlee/pi-sync/c128932c/assets/pi-sync_demo_2.gif "Sample Usage")
 
 ## License (MIT)
 Copyright 2017~2018 Jerry Lee
