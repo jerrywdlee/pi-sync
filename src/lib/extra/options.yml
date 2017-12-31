@@ -24,12 +24,16 @@ commands:
   -
     - '-s, --safe'
     - 'Use safe mode, if failed first time, try safe mode'
+  -
+    - '-i, --init'
+    - 'Init `pi-sync.conf.yml`'
 
 
 example: |
   '  Examples:'
   ''
   '    $ pi-sync --help'
+  '    $ pi-sync -i -H pi@192.168.3.86:22 -r /home/pi/PROJECT'
   '    $ pi-sync -H pi@192.168.1.1:22 -k PATH/TO/KEY'
   '    $ pi-sync -H pi@192.168.1.1:22 -P raspberry'
   '    $ pi-sync -H 192.168.1.1 -p 22 -a pi -P raspberry'

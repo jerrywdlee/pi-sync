@@ -4,7 +4,7 @@
 const path = require('path');
 const colors = require('colors/safe');
 // const package_json = JSON.parse(fs.readFileSync('./package.json'));
-const currentRepoName = path.basename(process.cwd());;
+const currentRepoName = path.basename(process.cwd());
 const _ = require('lodash');
 
 class Log {

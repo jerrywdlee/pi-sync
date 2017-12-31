@@ -17,7 +17,7 @@ for (const command of options.commands) {
 program.on('--help', () => {
   console.log();
   console.log(options.example.replace(/\'/g, ''));
-  process.exit(0);
+  // process.exit(0);
 });
 
 program.parse(process.argv);
@@ -29,6 +29,7 @@ const connect_opt = {
   password: program.pass || 'raspberry',
   privateKey: program.key,
   watch: program.watch,
+  initApp: program.init,
   remotePath: program.remote,
   safeMode: program.safe
 };

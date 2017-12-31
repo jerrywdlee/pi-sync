@@ -24,6 +24,12 @@ const defaultConnection = {
   readyTimeout: 5000
 };
 
+if (connect_opt.initApp) {
+  const init = require('./lib/init_app');
+  init(connect_opt);
+  process.exit(0);
+}
+
 try {
   syncConf = YAML.load(confPath) || syncConf;
 } catch (e) {
