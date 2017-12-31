@@ -53,7 +53,7 @@ Set `pi-sync.conf.yml` under repository root before use it. and run commands bel
 # NOTE: This sample configs could not used directly
 
 connection: # connection setting of ssh/sftp 
-  host: 192.168.x.xx # needed
+  host: 192.168.x.xx # optional, default pi
   port: 22 # optional, default 22
   username: pi # needed
   password: raspberry # optional, but one of password or privateKey is needed

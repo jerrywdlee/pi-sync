@@ -60,7 +60,12 @@ class Sync {
       if (safeMode) {
         for (const paths of pathList) {
           Log.log('Safe mode updating', paths.local.replace(process.cwd() + '/', ''));
-          await this.ssh.putFile(paths.local, paths.remote);
+          try {
+            await this.ssh.putFile(paths.local, paths.remote);
+          } catch (e) {
+            Log.error('putFiles', e.message);
+            // console.error(e);
+          }
         }
       } else {
         const listChunks = _.chunk(pathList, 200);

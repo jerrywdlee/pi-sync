@@ -1,6 +1,6 @@
 {
   "name": "pi-sync",
-  "version": "0.1.6",
+  "version": "0.2.1",
   "description": "Auto sync codes to Raspberry Pi by SFTP, inspirated by docker-sync.",
   "main": "bin/index.js",
   "scripts": {
@@ -30,6 +30,7 @@
     "chokidar": "^1.7.0",
     "colors": "^1.1.2",
     "commander": "^2.12.2",
+    "ignore": "^3.3.7",
     "ignore-walk": "^3.0.1",
     "lodash": "^4.17.4",
     "node-ssh": "^5.0.0",
