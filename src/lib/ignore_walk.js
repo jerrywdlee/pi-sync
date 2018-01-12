@@ -4,6 +4,8 @@ const walk = require('ignore-walk');
 const path = require('path');
 const fs = require('fs');
 const Minimatch = require('minimatch').Minimatch;
+const ignore = require('ignore');
+const ig = ignore();
 
 class ExtWalkerSync extends walk.WalkerSync {
   constructor(opt, addIgnoreRules) {
@@ -41,9 +43,13 @@ const walkSync = (options, includeRules, ignoreRules) => {
 
   ignoreRules = ignoreRules.concat(gitignoreRules);
   let rules = addIgnoreRules(ignoreRules);
+  ig.add(ignoreRules);
+  let fileList = new ExtWalkerSync(options, rules).start().result.filter(path => !ig.ignores(path));
+  // let rules = addIgnoreRules(ignoreRules);
   return {
-    fileList: new ExtWalkerSync(options, rules).start().result,
+    // fileList: new ExtWalkerSync(options, rules).start().result,
     // ignoreRuleList: rules
+    fileList: fileList,
     ignoreRuleList: ignoreRules
   };
 };
