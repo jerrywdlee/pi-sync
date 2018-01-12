@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/jerrywdlee/pi-sync.svg?branch=master)](https://travis-ci.org/jerrywdlee/pi-sync)
 [![Coverage Status](https://coveralls.io/repos/github/jerrywdlee/pi-sync/badge.svg?branch=master)](https://coveralls.io/github/jerrywdlee/pi-sync?branch=master)  
 Auto sync codes to Raspberry Pi by SFTP, inspirated by docker-sync.  
-
+
 + [中文](https://zhuanlan.zhihu.com/p/32486988)  
 + [日本語](https://qiita.com/jerrywdlee/items/41efb0a5ad4b03542247)  
 # Install
@@ -35,6 +35,7 @@ __*IMPORTANT*__: An already-known bug occurs when try to sync a large project fo
     -k, --key <key>          Path to SSH private key
     -r, --remote <remote>    Remote path, must be absolute path
     -s, --safe               Use safe mode, if failed first time, try safe mode
+    -i, --init               Init `pi-sync.conf.yml`
     -h, --help               output usage information
 
   Examples:
